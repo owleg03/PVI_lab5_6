@@ -1,0 +1,95 @@
+﻿@model Lab6.Models.RegisterViewModel;
+@{
+    ViewData["Title"] = "Registration";
+}
+<h2>Registration</h2>
+<hr />
+
+
+
+<div class="row">
+	<div class="d-flex justify-content-around">
+        <div class="p-2 text-left">
+			<img src="~/Images/coffee-cup.png" height="400px" width="400px" alt="Coffee cup image"/>
+			<br />
+        </div>
+		<div class="p-2 text-left">
+			<img id="user-avatar" class="avatar" alt="Your avatar here"/>
+			<form asp-action="Register" asp-controller="Account" asp-antiforgery="true">
+				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<input id="user-avatar-link" asp-for="Avatar" readonly hidden />
+				<div class="form-group">
+					<label asp-for="Login" class="control-label">Login*:</label><br />
+					<input asp-for="Login" class="form-control"/>
+					<span asp-validation-for="Login" class="text-danger"/>
+				</div>
+				<div class="form-group">
+					<label asp-for="Email" class="control-label">Email*:</label><br />
+					<input type="email" asp-for="Email" class="form-control"/>
+					<span asp-validation-for="Email" class="text-danger"/>
+				</div>
+				<div class="form-group">
+					<label asp-for="Password" class="control-label">Password*:</label><br />
+					<input asp-for="Password" class="form-control"/>
+					<span asp-validation-for="Password" class="text-danger"/>
+				</div>
+				<div class="form-group">
+					<label asp-for="ConfirmPassword" class="control-label">Confirm password*:</label><br />
+					<input asp-for="ConfirmPassword" class="form-control"/>
+					<span asp-validation-for="ConfirmPassword" class="text-danger"/>
+				</div>
+				<div class="form-group">
+					<label asp-for="Age" class="control-label">Age*:</label><br />
+					<input type="number" asp-for="Age" class="form-control"/>
+					<span asp-validation-for="Age" class="text-danger"/>
+				</div>
+				<div class="form-group">
+					<br />
+					<label asp-for="Level" class="control-label">Chess knowledge level:&emsp;</label>
+					@Html.DropDownListFor(
+						m => m.Level, 
+						new SelectList(Enum.GetValues(typeof(Level))
+					))
+					<br /><br />
+					<textarea asp-for="About" class="form-control" placeholder="Share somethong about yourself!"></textarea>
+					<br />
+					<input type="radio" asp-for="Gender" value="Male" /><span>Male&emsp;</span>
+					<input type="radio" asp-for="Gender" value="Female"/><span>Female</span>
+				</div>
+				<br />
+				<div class="form-group row">
+					<input type="submit" value="Register" class="btn btn-primary"/>
+				</div>
+			</form>
+        </div>
+			<img src="~/Images/pencils.png" height="600px" width="300px" alt="Pencils image"/>
+        <div class="p-2 text-left">
+        </div>
+    </div>
+    
+</div>
+
+@section Scripts {
+	<script type="text/javascript">
+		function requestImage() {
+			console.log("Image requested")
+			$.ajax({
+				url: "https://random.dog/woof.json?ref=apilist.fun",
+				type: "GET",
+				success: function (data) {
+					$("#user-avatar").attr("src", data.url);
+					$("#user-avatar-link").val(data.url);
+					console.log("Image was loaded");
+				},
+				error: function (event) {
+					console.log("Request error");
+					requestImage();
+				}
+			});
+		}
+		
+		$(document).ready(requestImage);
+		$("#user-avatar").on("error", requestImage);
+	</script>
+	@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

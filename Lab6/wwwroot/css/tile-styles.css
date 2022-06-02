@@ -1,0 +1,104 @@
+﻿.tile {
+    min-height: 78px;
+    height: 78px;
+    min-width: 78px;
+    width: 78px;
+}
+
+.bright-tile {
+    background-color: beige;
+    color: brown;
+}
+
+.dark-tile {
+    background-color: brown;
+    color: beige;
+}
+
+.numbered-tile {
+    text-align: left;
+    vertical-align: top;
+}
+
+.lettered-tile {
+    text-align: right;
+    vertical-align: bottom;
+}
+
+.black-pawn-tile {
+    background-image: url("../Images/black-pawn.png");
+    background-size: 78px 78px;
+    background-repeat: no-repeat;
+}
+
+.black-knight-tile {
+    background-image: url("../Images/black-knight.png");
+    background-size: 78px 78px;
+    background-repeat: no-repeat;
+}
+
+.black-king-tile {
+    background-image: url("../Images/black-king.png");
+    background-size: 78px 78px;
+    background-repeat: no-repeat;
+}
+
+.black-bishop-tile {
+    background-image: url("../Images/black-bishop.png");
+    background-size: 78px 78px;
+    background-repeat: no-repeat;
+}
+
+.black-queen-tile {
+    background-image: url("../Images/black-queen.png");
+    background-size: 78px 78px;
+    background-repeat: no-repeat;
+}
+
+.black-rook-tile {
+    background-image: url("../Images/black-rook.png");
+    background-size: 78px 78px;
+    background-repeat: no-repeat;
+}
+
+.white-pawn-tile {
+    background-image: url("../Images/white-pawn.png");
+    background-size: 78px 78px;
+    background-repeat: no-repeat;
+}
+
+.white-knight-tile {
+    background-image: url("../Images/white-knight.png");
+    background-size: 78px 78px;
+    background-repeat: no-repeat;
+}
+
+.white-king-tile {
+    background-image: url("../Images/white-king.png");
+    background-size: 78px 78px;
+    background-repeat: no-repeat;
+}
+
+.white-bishop-tile {
+    background-image: url("../Images/white-bishop.png");
+    background-size: 78px 78px;
+    background-repeat: no-repeat;
+}
+
+.white-queen-tile {
+    background-image: url("../Images/white-queen.png");
+    background-size: 78px 78px;
+    background-repeat: no-repeat;
+}
+
+.white-rook-tile {
+    background-image: url("../Images/white-rook.png");
+    background-size: 78px 78px;
+    background-repeat: no-repeat;
+}
+
+#overlap-tile-p {
+    text-align: right;
+    margin-bottom: 0px;
+    padding-top: 26px;
+}

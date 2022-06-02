@@ -1,0 +1,70 @@
+﻿@model Lab6.Models.Account
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Image</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+				<label asp-for="Login" class="control-label">Login:</label><br />
+				<input asp-for="Login" class="form-control"/>
+				<span asp-validation-for="Login" class="text-danger"/>
+			</div>
+			<div class="form-group">
+				<label asp-for="Email" class="control-label">Email:</label><br />
+				<input type="email" asp-for="Email" class="form-control"/>
+				<span asp-validation-for="Email" class="text-danger"/>
+			</div>
+			<div class="form-group">
+				<label asp-for="Password" class="control-label">Password:</label><br />
+				<input asp-for="Password" class="form-control"/>
+				<span asp-validation-for="Password" class="text-danger"/>
+			</div>
+			<div class="form-group">
+				<label asp-for="Age" class="control-label">Age:</label><br />
+				<input type="number" asp-for="Age" class="form-control"/>
+				<span asp-validation-for="Age" class="text-danger"/>
+			</div>
+			<div class="form-group">
+				<br />
+				<label asp-for="Level" class="control-label">Chess knowledge level:&emsp;</label>
+				@Html.DropDownListFor(
+					m => m.Level, 
+					new SelectList(Enum.GetValues(typeof(Level))
+				))
+				<br /><br />
+				<textarea asp-for="About" class="form-control" placeholder="Share somethong about yourself!"></textarea>
+				<br />
+				<input type="radio" asp-for="Gender" value="Male" /><span>Male&emsp;</span>
+				<input type="radio" asp-for="Gender" value="Female"/><span>Female</span>
+			</div>
+			<br />
+			<div class="form-group">
+				<label asp-for="Avatar" class="control-label">Avatar:</label><br />
+				<input asp-for="Avatar" class="form-control"/>
+				<span asp-validation-for="Avatar" class="text-danger"/>
+			</div>
+			<br />
+			 <div class="form-group row">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+			<br />
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

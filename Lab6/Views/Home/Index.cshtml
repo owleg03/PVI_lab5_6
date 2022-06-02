@@ -1,0 +1,120 @@
+﻿@{
+    ViewData["Title"] = "Chess Cases";
+}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/tile-styles.css">
+    <link rel="stylesheet" type="text/css" href="~/css/timer.css">
+    <link rel="icon" href="~/Images/chess-icon.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <script defer src="~/js/home-script.js"></script>
+    <script defer src="~/js/timer-script.js"></script>
+    <script defer src="~/js//chart-script.js"></script>
+</head>
+
+<body>
+    <div class="d-flex justify-content-around">
+        <div id="chess-case" class="p-2 text-left">
+            <h1 id="top-header">Chess Case #57088:</h1>
+            <table id="chess-deck" onchange="updateChart()">
+                <tr>
+                    <td class="tile bright-tile numbered-tile">8</td>
+                    <td class="tile dark-tile"></td>
+                    <td class="tile bright-tile"></td>
+                    <td class="tile dark-tile"></td>
+                    <td class="tile bright-tile black-king-tile"></td>
+                    <td class="tile dark-tile"></td>
+                    <td class="tile bright-tile"></td>
+                    <td class="tile dark-tile white-rook-tile"></td>
+                </tr>
+                <tr>
+                    <td class="tile dark-tile numbered-tile black-pawn-tile">7</td>
+                    <td class="tile bright-tile black-pawn-tile"></td>
+                    <td class="tile dark-tile black-pawn-tile"></td>
+                    <td class="tile bright-tile"></td>
+                    <td class="tile dark-tile"></td>
+                    <td class="tile bright-tile black-pawn-tile"></td>
+                    <td class="tile dark-tile"></td>
+                    <td class="tile bright-tile"></td>
+                </tr>
+                <tr>
+                    <td class="tile bright-tile numbered-tile">6</td>
+                    <td class="tile dark-tile"></td>
+                    <td class="tile bright-tile"></td>
+                    <td class="tile dark-tile"></td>
+                    <td class="tile bright-tile"></td>
+                    <td class="tile dark-tile white-queen-tile"></td>
+                    <td class="tile bright-tile"></td>
+                    <td class="tile dark-tile"></td>
+                </tr>
+                <tr>
+                    <td class="tile dark-tile numbered-tile">5</td>
+                    <td class="tile bright-tile"></td>
+                    <td class="tile dark-tile"></td>
+                    <td class="tile bright-tile"></td>
+                    <td class="tile dark-tile black-pawn-tile"></td>
+                    <td class="tile bright-tile"></td>
+                    <td class="tile dark-tile"></td>
+                    <td class="tile bright-tile"></td>
+                </tr>
+                <tr>
+                    <td class="tile bright-tile numbered-tile">4</td>
+                    <td class="tile dark-tile"></td>
+                    <td class="tile bright-tile black-bishop-tile"></td>
+                    <td class="tile dark-tile black-rook-tile"></td>
+                    <td class="tile bright-tile"></td>
+                    <td class="tile dark-tile"></td>
+                    <td class="tile bright-tile white-pawn-tile"></td>
+                    <td class="tile dark-tile white-king-tile"></td>
+                </tr>
+                <tr>
+                    <td class="tile dark-tile numbered-tile">3</td>
+                    <td class="tile bright-tile"></td>
+                    <td class="tile dark-tile"></td>
+                    <td class="tile bright-tile black-knight-tile"></td>
+                    <td class="tile dark-tile black-rook-tile"></td>
+                    <td class="tile bright-tile"></td>
+                    <td class="tile dark-tile"></td>
+                    <td class="tile bright-tile"></td>
+                </tr>
+                <tr>
+                    <td class="bright-tile numbered-tile white-pawn-tile">2</td>
+                    <td class="tile dark-tile white-pawn-tile"></td>
+                    <td class="tile bright-tile"></td>
+                    <td class="tile dark-tile"></td>
+                    <td class="tile bright-tile"></td>
+                    <td class="tile dark-tile"></td>
+                    <td class="tile bright-tile"></td>
+                    <td class="tile dark-tile white-pawn-tile"></td>
+                </tr>
+                <tr>
+                    <td class="tile dark-tile numbered-tile">1
+                        <p id="overlap-tile-p">a</p>
+                    </td>
+                    <td class="tile bright-tile lettered-tile">b</td>
+                    <td class="tile dark-tile lettered-tile">c</td>
+                    <td class="tile bright-tile lettered-tile">d</td>
+                    <td class="tile dark-tile lettered-tile">e</td>
+                    <td class="tile bright-tile lettered-tile">f</td>
+                    <td class="tile dark-tile lettered-tile">g</td>
+                    <td class="tile bright-tile lettered-tile">h</td>
+                </tr>
+            </table>
+        </div>
+        <div id="right-side" class="p-2">
+            <div class="text-center">
+                <h3 id="timer-countdown">---</h3>
+                <input class="form-control timer-input text-right" type="number" id="timer-input-minutes" value="0" min="0">
+                <span>:</span>
+                <input class="form-control timer-input text-left" type="number" id="timer-input-seconds" value="0" min="0">
+            </div>
+            <div class="p-2 text-center">
+                <button class="btn btn-primary" id="timer-button" onclick="timerButtonClicked()">Start Timer</button>
+                <br />
+                <br />
+                <h3 class="text-left">Figure statistics:</h3>
+                <canvas id="chart"></canvas>
+            </div>
+        </div>
+    </div>
+</body>

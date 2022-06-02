@@ -1,0 +1,34 @@
+﻿@model Lab6.Models.LogInViewModel
+
+@{
+    ViewData["Title"] = "Log In";
+}
+
+<h2>Please log in first:</h2>
+<a asp-area="" asp-action="Register" asp-controller="Account">Register</a>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="LogIn" asp-controller="Account" asp-antiforgery="true">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Login" class="control-label">Login:</label><br />
+                <input asp-for="Login" class="form-control" />
+                <span asp-validation-for="Login" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label">Password:</label><br />
+                <input type="password" asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <br />
+                <input type="submit" value="Log In" class="btn btn-primary" /><br />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

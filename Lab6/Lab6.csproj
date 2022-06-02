@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Images\black-bishop.png" />
+    <None Include="wwwroot\Images\black-king.png" />
+    <None Include="wwwroot\Images\black-knight.png" />
+    <None Include="wwwroot\Images\black-pawn.png" />
+    <None Include="wwwroot\Images\black-queen.png" />
+    <None Include="wwwroot\Images\black-rook.png" />
+    <None Include="wwwroot\Images\chess-icon.png" />
+    <None Include="wwwroot\Images\coffee-cup.png" />
+    <None Include="wwwroot\Images\pencils.png" />
+    <None Include="wwwroot\Images\white-bishop.png" />
+    <None Include="wwwroot\Images\white-king.png" />
+    <None Include="wwwroot\Images\white-knight.png" />
+    <None Include="wwwroot\Images\white-pawn.png" />
+    <None Include="wwwroot\Images\white-queen.png" />
+    <None Include="wwwroot\Images\white-rook.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>
