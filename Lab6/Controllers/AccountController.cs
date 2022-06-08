@@ -163,6 +163,7 @@ namespace Lab6.Controllers
                 }
                 ModelState.AddModelError("", "Incorrect login/password.");
             }
+
             return View(model);
         }
 
@@ -184,7 +185,7 @@ namespace Lab6.Controllers
                 Account account = await _context.Account.FirstOrDefaultAsync(u => u.Email == model.Email);
                 if (account != null)
                 {
-                    ModelState.AddModelError("", "This login is taken.");
+                    ModelState.AddModelError("", "This email is taken.");
                     return View(model);
                 }
 
@@ -201,6 +202,8 @@ namespace Lab6.Controllers
                 };
                 _context.Account.Add(account);
                 _context.SaveChanges();
+
+                TempData["Alert"] = $"Data for {account.Login} was added successfully";
                 return RedirectToAction("LogIn");
             }
             return View(model);

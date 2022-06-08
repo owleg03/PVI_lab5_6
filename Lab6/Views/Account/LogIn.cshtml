@@ -2,6 +2,10 @@
 
 @{
     ViewData["Title"] = "Log In";
+    if (TempData["Alert"] != null)
+    {
+        <script type="text/javascript">alert("@TempData["Alert"]");</script>
+    }
 }
 
 <h2>Please log in first:</h2>
